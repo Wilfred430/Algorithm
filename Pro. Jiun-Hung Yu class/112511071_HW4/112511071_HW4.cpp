@@ -204,7 +204,7 @@ void obersve_RM_quicksort(vector<int> &v, int left, int right)
 
     QueryPerformanceCounter(&nEndTime); // 停止計時
     time = (double)(nEndTime.QuadPart - nBeginTime.QuadPart) / (double)nFreq.QuadPart;
-    cout << fixed << setprecision(6) << "Merge Sort Time : " << time << " seconds" << endl;
+    cout << fixed << setprecision(6) << "RM Quick Sort Time : " << time << " seconds" << endl;
 }
 
 // 生成隨機陣列並測試三種排序演算法
