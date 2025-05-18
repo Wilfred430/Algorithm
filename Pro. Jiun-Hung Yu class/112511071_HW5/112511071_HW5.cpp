@@ -60,7 +60,7 @@ int main()
     {
         cin >> price[i];
     }
-    cout << "-------------------------------------------------------------" << endl;
+    cout << "------------------------------------" << endl;
     cout << "Top_down" << endl;
 
     vector<int> first_cut(rod_length + 1, 0);
@@ -87,7 +87,7 @@ int main()
     cout << endl;
     cout << "number of pieces: " << rod_length << endl;
 
-    cout << "-------------------------------------------------------------" << endl;
+    cout << "------------------------------------" << endl;
     cout << "Bottom-up:" << endl;
 
     vector<int> bu_first_cut(rod_length + 1, 0);
