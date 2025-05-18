@@ -28,7 +28,6 @@ int Memoized_Cut_Rod(const vector<int> &price, int rod_length, vector<int> &firs
     return Memoized_Cut_Rod_Aux(price, rod_length, cut, first_cut);
 }
 
-// Bottom-up 版本，模擬 memorized 的形式
 int Bottom_up_Cut_Rod(const vector<int> &price, int rod_length, vector<int> &first_cut)
 {
     vector<int> cut(rod_length + 1, 0);
@@ -55,7 +54,7 @@ int main()
     cout << "input rod of length: ";
     cin >> rod_length;
     cout << "input price of rod of length : ";
-    vector<int> price(rod_length + 1, 0); // index 0 不用，1~rod_length
+    vector<int> price(rod_length + 1, 0);
     for (int i = 1; i <= rod_length; i++)
     {
         cin >> price[i];
@@ -67,7 +66,6 @@ int main()
     int max_price = Memoized_Cut_Rod(price, rod_length, first_cut);
     cout << "maximum price: " << max_price << endl;
 
-    // 回溯切割方案
     vector<int> pieces;
     int n = rod_length;
     while (n > 0)
@@ -80,15 +78,14 @@ int main()
     cout << endl;
     cout << "number of pieces: " << pieces.size() << endl;
 
-    cout << "-------------------------------------------------------------" << endl;
-    // 最小價格（全部切成 1）
+    cout << endl;
     int min_price = rod_length * price[1];
     cout << "minimum price: " << min_price << endl;
     for (int i = 0; i < rod_length; i++)
         cout << "1 ";
     cout << endl;
     cout << "number of pieces: " << rod_length << endl;
-    
+
     cout << "-------------------------------------------------------------" << endl;
     cout << "Bottom-up:" << endl;
 
@@ -96,7 +93,6 @@ int main()
     int bu_max_price = Bottom_up_Cut_Rod(price, rod_length, bu_first_cut);
     cout << "maximum price: " << bu_max_price << endl;
 
-    // 回溯切割方案
     vector<int> bu_pieces;
     n = rod_length;
     while (n > 0)
@@ -109,7 +105,7 @@ int main()
     cout << endl;
     cout << "number of pieces: " << bu_pieces.size() << endl;
 
-    // 最小價格（全部切成 1）
+    cout << endl;
     int bu_min_price = rod_length * price[1];
     cout << "minimum price: " << bu_min_price << endl;
     for (int i = 0; i < rod_length; i++)
