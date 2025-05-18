@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cmath>
 using namespace std;
 
 int Memoized_Cut_Rod_Aux(const vector<int> &price, int rod_length, vector<int> &cut, vector<int> &first_cut)
@@ -10,7 +11,7 @@ int Memoized_Cut_Rod_Aux(const vector<int> &price, int rod_length, vector<int> &
     int q = INT_MIN;
     for (int i = 1; i <= rod_length; i++)
     {
-        int temp = price[i] + Memoized_Cut_Rod_Aux(price, rod_length - i, cut, first_cut);
+        int temp = max(q,price[i] + Memoized_Cut_Rod_Aux(price, rod_length - i, cut, first_cut));
         if (temp > q)
         {
             q = temp;
@@ -39,7 +40,7 @@ int Bottom_up_Cut_Rod(const vector<int> &price, int rod_length, vector<int> &fir
         {
             if (q < price[i] + cut[j - i])
             {
-                q = price[i] + cut[j - i];
+                q = max(q,price[i] + cut[j - i]);
                 first_cut[j] = i;
             }
         }
